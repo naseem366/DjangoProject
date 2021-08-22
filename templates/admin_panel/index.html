@@ -1,0 +1,120 @@
+{% load static %}
+{% include "admin_panel/header.html" %}
+<div id="dashboardPage"></div>
+<div class="pcoded-content">
+  <div class="pcoded-inner-content">
+    <div class="main-body">
+      <div class="page-wrapper">
+        <div class="page-header card">
+          <div class="row align-items-end">
+            <div class="col-sm-6 col-lg-6">
+              <div class="page-header-title d-flex">
+                <i class="ti-home bg-c-green"></i>
+                <div class="d-inline">
+                  <h4>Dashboard</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-6">
+              <div class="page-header-breadcrumb">
+                <div class="page-header-breadcrumb">
+                  <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item">
+                      <a href="home">
+                        <i class="icofont icofont-home"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="row height-box">
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 full-height">
+              <div class="card bg-c-broun text-white widget-visitor-card">
+                <div class="card-block-small text-center">
+                  <h2>1520</h2>
+                  <h6>Total Number of Users</h6>
+                  <i class="ti-user courner"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 full-height">
+              <div class="card bg-c-yellow text-white widget-visitor-card">
+                <div class="card-block-small text-center">
+            
+                 <h2>5597</h2>
+                  <h6>Total Number of Podcasters</h6>
+                  <i class="ti-announcement courner"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 full-height">
+              <div class="card bg-c-pink text-white widget-visitor-card">
+                <div class="card-block-small text-center">
+                  <h3>1,658</h3>
+                  <h6>Total Number of Downloads</h6>
+                  <i class="fa fa-download courner"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 full-height">
+              <div class="card bg-c-blue text-white widget-visitor-card">
+                <div class="card-block-small text-center">
+                  <h3>1,658</h3>
+                  <h6>Total Number of Hosted Podcasts</h6>
+                  <i class="ti-microphone courner"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+              <div class="card project-task">
+                <div class="card-header">
+                  <div class="card-header-left">
+                    <h4>Total Revenue</h4>
+                  </div>
+                  <!-- <div class="card-header-right">
+                    <h5 class="text-danger">34</h5>
+                  </div> -->
+                  <div class="graph-img">
+                    <canvas id="canvas"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include "admin_panel/footer.html" %}
+
+<script>
+    var color = Chart.helpers.color;
+    var barChartData = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      datasets: [{
+        label: 'Revenue',
+        backgroundColor: color('rgb(255, 99, 132)').alpha(0.5).rgbString(),
+        borderColor: 'rgb(255, 99, 132)',
+        borderWidth: 1,
+        data: [20, 30, 25, 50, 65, 40, 85, 65, 70, 90, 75, 15]
+      }]
+
+    };
+
+    window.onload = function() {
+      // var ctx = document.getElementById('canvas').getContext('2d');
+      var ctx = document.getElementById('canvas');
+      window.myBar = new Chart(ctx, {
+        type: 'bar',
+        data: barChartData,        
+      });
+
+    };
+
+
+  </script>

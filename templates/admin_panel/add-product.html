@@ -1,0 +1,153 @@
+
+{% include "admin_panel/header.html" %}
+<div id="userPage"></div>
+<div class="pcoded-content">
+  <div class="pcoded-inner-content">
+    <div class="main-body">
+      <div class="page-wrapper">
+        <div class="page-header card">
+          <div class="row align-items-end">
+            <div class="col-sm-6 col-lg-6">
+              <div class="page-header-title d-flex">
+                <i class="ti-user bg-c-green"></i>
+                <div class="d-inline">
+                  <h4>Add Product</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-6"> 
+              <div class="page-header-breadcrumb">
+                <div class="page-header-breadcrumb">
+                  <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item">
+                      <a href="dashboard.php">
+                        <i class="icofont icofont-home"></i>
+                      </a> 
+                    </li>
+                    <li class="breadcrumb-item"><a href="#">Add Product</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         <form action="" method="POST" enctype="multipart/form-data">
+           {% csrf_token %}  
+        <div class="row">
+            <div class="col-md-7">
+                <div class="page-body">
+                    <div class="card">
+                      <div class="card-block">
+                            <div class="row">
+                              <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label class="black fw-600">Enter Product Name</label>
+                                    {{form.product_name}}
+                               <!--  <input class="form-control" name="name" placeholder="Enter Category Name" type="text"> -->
+                                </div>
+                               
+                                 <div class="form-group">
+                                    <label class="black fw-600">Enter Product Amount</label>
+                                    {{form.amount}}
+                               <!--  <input class="form-control" name="name" placeholder="Enter Category Name" type="text"> -->
+                                </div>  
+
+                                <div class="form-group">
+                           <label for="exampleFormControlFile1">Enter Product Image</label>
+                           {{form.product_Image}}
+                             <!-- <input type="file" class="form-control-file" id="exampleFormControlFile1">-->
+                                       </div>   
+                              </div>  
+                              <div class="col-md-12">
+                                  <div class="m-t-10 text-center">
+                                      <button type="submit" class="btn btn-md btn-primary">Save</button>
+                                  </div>
+                              </div> 
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+         </div> 
+      </div>
+    </div>
+  </div>
+</div> 
+ </form> 
+{% include "admin_panel/footer.html" %}
+<script type="text/javascript">
+  $('#user-list').DataTable({
+    columnDefs: [
+      { targets: 'no-sort', orderable: false }
+    ]
+  });
+</script>
+<!-- block modal -->
+<div id="block-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-body text-center">
+      <i class="text-warning fs-34 d-inline-block fa fa-ban mb-4"></i>
+      <h6>Are you sure you want to block?</h6>
+      <hr />
+      <div class="m-t-15">
+        <button type="button" class="btn btn-sm btn-success mr-1" data-target="#block-sccess-modal" data-toggle="modal" data-dismiss="modal">Block</button>
+        <button type="button" class="btn btn-sm btn-danger ml-1" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- unblock modal -->
+<div id="unblock-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-body text-center">
+      <i class="text-success fs-34 d-inline-block fa fa-ban mb-4"></i>
+      <h6>Are you sure you want to unblock? </h6>
+      <hr />
+      <div class="m-t-15">
+        <button type="button" class="btn btn-sm btn-success mr-1" data-target="#unblock-sccess-modal" data-toggle="modal" data-dismiss="modal">Unblock</button>
+        <button type="button" class="btn btn-sm btn-danger ml-1" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- delete block -->
+<div id="delete-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-body text-center">
+      <i class="text-danger fs-34 d-inline-block ti-trash mb-4"></i>
+      <h6>Are you sure you want to delete?</h6>
+      <hr />
+      <div class="m-t-15">
+        <button type="button" class="btn btn-sm btn-success mr-1" data-target="#delete-sccess-modal" data-toggle="modal" data-dismiss="modal">Delete</button>
+        <button type="button" class="btn btn-sm btn-danger ml-1" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- success modal -->
+<div id="block-sccess-modal" class="modal fade">
+  <div class="modal-dialog modal-sm" data-dismiss="modal">
+    <div class="modal-body text-center">
+      <i class="text-warning fs-34 d-inline-block icofont icofont-check-circled mb-4"></i>
+      <h6>Block Successfully</h6>
+    </div>
+  </div>
+</div>
+<!-- success modal -->
+<div id="unblock-sccess-modal" class="modal fade">
+  <div class="modal-dialog modal-sm" data-dismiss="modal">
+    <div class="modal-body text-center">
+      <i class="text-success fs-34 d-inline-block icofont icofont-check-circled mb-4"></i>
+      <h6>Unblock Successfully</h6>
+    </div>
+  </div>
+</div>
+<!-- success modal -->
+<div id="delete-sccess-modal" class="modal fade">
+  <div class="modal-dialog modal-sm" data-dismiss="modal">
+    <div class="modal-body text-center">
+      <i class="text-danger fs-34 d-inline-block icofont icofont-check-circled mb-4"></i>
+      <h6>Delete Successfully</h6>
+    </div>
+  </div>
+</div>

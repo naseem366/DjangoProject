@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Verify Otp</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="#" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="#" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- icon -->
+  <link rel="icon" href="{% static 'account/assets/images/favicon.png' %}" type="image/x-icon" />
+  <!-- css -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'account/assets/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'account/assets/icon/themify-icons/themify-icons.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'account/assets/icon/icofont/css/icofont.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'account/assets/css/style.css' %}" />
+</head>
+
+<body class="fix-menu">
+
+  <section class="login common-img-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="login-card card-block auth-body mr-auto ml-auto">
+            <form class="md-float-material" method="POST">
+              {% csrf_token %}
+              <div class="auth-box">
+                <div class="text-center">
+                  <img src="{% static 'account/assets/images/logo.svg' %}" alt="logo" />
+                </div>
+                <div class="row m-b-10">
+                  <div class="col-md-12">
+                    <h3 class="text-left txt-primary">Change password</h3>
+                  </div>
+                </div>
+                <hr />
+                <div class="input-group input-group-primary">
+                  <span class="input-group-addon">
+                    <i class="icofont icofont-envelope"></i>
+                  </span>
+                  <input type="text" name="email" class="form-control" placeholder="Your Email Address" />
+                </div>
+                 <div class="input-group input-group-primary">
+                  <span class="input-group-addon">
+                    <i class="icofont icofont-envelope"></i>
+                  </span>
+                  <input type="text" name="otp" class="form-control" placeholder="Your Otp" />
+                </div>
+                 <div class="input-group input-group-primary">
+                  <span class="input-group-addon">
+                    <i class="icofont icofont-envelope"></i>
+                  </span>
+                  <input type="text" name="password" class="form-control" placeholder="Your password" />
+                </div>
+                <div class="row m-t-20">
+                  <div class="col-md-12">
+                    <button class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign in</button>
+                  </div>
+                </div>
+                {% if status %}
+                 <div class="row m-b-10">
+                  <div class="col-md-12">
+                    <h3 class="text-left txt-primary">{{ status }}</h3>
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

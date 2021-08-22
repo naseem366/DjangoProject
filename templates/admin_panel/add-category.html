@@ -1,0 +1,80 @@
+
+{% include "admin_panel/header.html" %}
+<div id="userPage"></div>
+<div class="pcoded-content">
+  <div class="pcoded-inner-content">
+    <div class="main-body">
+      <div class="page-wrapper">
+        <div class="page-header card">
+          <div class="row align-items-end">
+            <div class="col-sm-6 col-lg-6">
+              <div class="page-header-title d-flex">
+                <i class="ti-user bg-c-green"></i>
+                <div class="d-inline">
+                  <h4>Add Category</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-6"> 
+              <div class="page-header-breadcrumb">
+                <div class="page-header-breadcrumb">
+                  <ul class="breadcrumb-title">
+                    <li class="breadcrumb-item">
+                      <a href="dashboard.php">
+                        <i class="icofont icofont-home"></i>
+                      </a> 
+                    </li>
+                    <li class="breadcrumb-item"><a href="#">Add Category</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         <form action="" method="POST" enctype="multipart/form-data">
+           {% csrf_token %}
+           
+        <div class="row">
+            <div class="col-md-7">
+                <div class="page-body">
+                    <div class="card">
+                      <div class="card-block">
+                            <div class="row">
+                              <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label class="black fw-600">Enter Category Name</label>
+                                    
+                                <input class="form-control" name="category_name" placeholder="Enter Category Name" type="text">
+                                </div>
+                                <div class="form-group">
+                           <label for="exampleFormControlFile1">Enter Category Image</label>
+                           
+                             <input type="file" name="category_image" class="form-control-file" id="exampleFormControlFile1">
+                                       </div>     
+
+                              </div>  
+                              <div class="col-md-12">
+                                  <div class="m-t-10 text-center">
+                                      <button type="submit" class="btn btn-md btn-primary">Save</button>
+                                  </div>
+                              </div> 
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+         </div> 
+      </div>
+    </div>
+  </div>
+</div> 
+ </form> 
+ {{form.errors}}
+{% include "admin_panel/footer.html" %}
+<script type="text/javascript">
+  $('#user-list').DataTable({
+    columnDefs: [
+      { targets: 'no-sort', orderable: false }
+    ]
+  });
+</script>

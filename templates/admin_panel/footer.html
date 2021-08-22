@@ -1,0 +1,54 @@
+{% load static %}      
+      </div>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript" src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'assets/js/Chart.js' %}"></script>
+  <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script> 
+  <script type="text/javascript" src="{% static 'assets/js/iEdit.js' %}"></script> 
+  <script type="text/javascript" src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script> 
+
+  <!-- email compose -->
+<!-- <script type="text/javascript">
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true
+  })
+</script> -->
+<!-- <script type="text/javascript">
+  $(window).on('load', function() {
+      var $container = $('.filter-container');
+      $container.isotope({
+          filter: '*',
+          animationOptions: {
+              duration: 750,
+              easing: 'linear',
+              queue: false
+          }
+      });
+      var $grid = $('.default-grid').isotope({
+          itemSelector: '.default-grid-item',
+          masonry: {}
+      });
+  });
+</script> -->
+  <script type="text/javascript" src="{% static 'assets/js/common-pages.js' %}"></script> 
+
+  <script type="text/javascript">
+  
+  $(document).on("change","#chooseImage",function(e2) {
+    var img1 = e2.target.files[0];
+    if(!iEdit.open(img1, true, function(res1){
+      $("#imageFile").attr("src", res1);  
+    })){
+      alert("Whoops! That is not an image!");
+    }
+  });
+
+  </script>
+  
+</body >
+</html>
